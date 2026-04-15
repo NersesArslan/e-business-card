@@ -1,5 +1,6 @@
 ---
-
+const PHONE_NUMBER = import.meta.env.PHONE_NUMBER;
+const ADDRESS = import.meta.env.ADDRESS;
 ---
 
 <html lang="en">
@@ -12,50 +13,122 @@
     <title>Astro</title>
   </head>
   <body>
-    <div class="container">
-      <div class="card">
-        <h1>Harry K Assay</h1>
-        <p>Gold Assaying Services · Downtown Los Angeles</p>
+    <div class="card">
+      <h1>Harry K Assay</h1>
+      <div class="subtitle">Gold Assaying Services · Downtown Los Angeles</div>
 
-        <p>
-          <a href="tel:1234567890">(123) 456-7890</a>
-        </p>
+      <div class="contact">
+        <div class="row">
+          <div class="icon">📞</div>
+          <div>
+            <a href="tel:1234567890">{PHONE_NUMBER}</a>
+          </div>
+        </div>
 
-        <p>
-          <a href="#">411 W 7th St #407, Los Angeles, CA 90014</a>
-        </p>
+        <div class="row">
+          <div class="icon">📍</div>
+          <div>{ADDRESS}</div>
+        </div>
+
+        <div class="row">
+          <div class="icon">🌐</div>
+          <div>
+            <a
+              href="https://maps.google.com?q=411 W 7th Street, Los Angeles CA 90014"
+            >
+              View on map
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </body>
 </html>
 <style>
-  :root {
-    --gold: #c9a227;
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: linear-gradient(135deg, #f6f7fb, #eef1f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
 
-  h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    color: var(--gold);
-  }
-
-  p {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    color: #444;
-  }
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-
+  /* Main card */
   .card {
     background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 420px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle left accent bar (very “premium card” feel) */
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #c9a227, #e85d04);
+  }
+
+  /* Company name */
+  h1 {
+    font-family:
+      Playfair Display,
+      serif;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+    color: #1a1a1a;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    margin-top: 0.3rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  /* Contact blocks */
+  .contact {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* Links */
+  a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>
