@@ -3,15 +3,59 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Harry K Assay</h1>
+        <p>Gold Assaying Services · Downtown Los Angeles</p>
+
+        <p>
+          <a href="tel:1234567890">(123) 456-7890</a>
+        </p>
+
+        <p>
+          <a href="#">411 W 7th St #407, Los Angeles, CA 90014</a>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
+<style>
+  :root {
+    --gold: #c9a227;
+  }
+
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    color: var(--gold);
+  }
+
+  p {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: #444;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+</style>
